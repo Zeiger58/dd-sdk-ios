@@ -82,6 +82,10 @@ internal class JSONToSwiftTypeTransformer {
                         isOptional: false,
                         isMutable: additionalProperties.isReadOnly,
                         defaultValue: nil,
+
+                        // TODO: RUMM-1401 - the additional property needs to be encoded without explicit `codingKey`
+                        // This requires introducing dynamic coding keys, where keys are created by keys from
+                        // `<structName>Info: [String: Codable]` dictionary.
                         codingKey: additionalPropertyName
                     )
                 )
